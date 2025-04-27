@@ -1,4 +1,3 @@
-
 import { GymUser } from "@/types/gym";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -81,9 +80,15 @@ export const UserForm = ({ user, onSubmit, onCancel }: UserFormProps) => {
               <FormLabel>Mensualidad</FormLabel>
               <FormControl>
                 <Input 
-                  type="number" 
-                  {...field} 
-                  onChange={(e) => field.onChange(Number(e.target.value))}
+                  type="number"
+                  min="0"
+                  step="1000"
+                  {...field}
+                  value={field.value || ''}
+                  onChange={(e) => {
+                    const value = e.target.value === '' ? 0 : Number(e.target.value);
+                    field.onChange(value);
+                  }}
                 />
               </FormControl>
             </FormItem>

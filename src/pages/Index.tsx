@@ -1,10 +1,10 @@
-
 import { useState } from "react";
 import { mockUsers } from "@/data/mockData";
 import { UserTable } from "@/components/UserTable";
 import { ExpiredMemberships } from "@/components/ExpiredMemberships";
 import { GymUser } from "@/types/gym";
 import { Toaster } from "@/components/ui/toaster";
+import { Dumbbell, Users, Calendar, AlertTriangle } from "lucide-react";
 
 const Index = () => {
   const [users, setUsers] = useState<GymUser[]>(mockUsers);
@@ -28,19 +28,46 @@ const Index = () => {
   };
 
   return (
-    <div className="container mx-auto py-6">
-      <h1 className="text-3xl font-bold mb-6">Sistema de Gestión de Gimnasio</h1>
-      
-      <ExpiredMemberships users={users} />
-      
-      <div className="rounded-lg bg-white p-6 shadow-sm">
-        <h2 className="text-xl font-semibold mb-4">Usuarios Registrados</h2>
-        <UserTable 
-          users={users}
-          onAddUser={handleAddUser}
-          onUpdateUser={handleUpdateUser}
-          onDeleteUser={handleDeleteUser}
-        />
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50">
+      <div className="gym-container">
+        <div className="flex items-center justify-between mb-8">
+          <div className="flex items-center gap-4">
+            <Dumbbell className="w-12 h-12 text-blue-600" />
+            <h1 className="gym-header">Sistema de Gestión de Gimnasio</h1>
+          </div>
+          <div className="flex gap-4">
+            <div className="flex items-center gap-2 bg-white p-3 rounded-lg shadow-sm">
+              <Users className="w-5 h-5 text-blue-600" />
+              <span className="font-semibold">{users.length} Miembros</span>
+            </div>
+            <div className="flex items-center gap-2 bg-white p-3 rounded-lg shadow-sm">
+              <Calendar className="w-5 h-5 text-blue-600" />
+              <span className="font-semibold">
+                {new Date().toLocaleDateString('es-ES', { 
+                  weekday: 'long', 
+                  year: 'numeric', 
+                  month: 'long', 
+                  day: 'numeric' 
+                })}
+              </span>
+            </div>
+          </div>
+        </div>
+        
+        <ExpiredMemberships users={users} />
+        
+        <div className="gym-card">
+          <div className="flex items-center gap-2 mb-6">
+            <Users className="w-6 h-6 text-blue-600" />
+            <h2 className="text-xl font-semibold">Usuarios Registrados</h2>
+          </div>
+          <UserTable 
+            users={users}
+            onAddUser={handleAddUser}
+            onUpdateUser={handleUpdateUser}
+            onDeleteUser={handleDeleteUser}
+          />
+        </div>
       </div>
       <Toaster />
     </div>

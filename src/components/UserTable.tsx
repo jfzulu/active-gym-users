@@ -1,4 +1,3 @@
-
 import { GymUser } from "@/types/gym";
 import {
   Table,
@@ -11,7 +10,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { format } from "date-fns";
 import { es } from "date-fns/locale";
-import { Edit, Trash2, UserPlus } from "lucide-react";
+import { Edit, Trash2, UserPlus, DollarSign } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -83,32 +82,37 @@ export const UserTable = ({ users, onAddUser, onUpdateUser, onDeleteUser }: User
   return (
     <div className="space-y-4">
       <div className="flex justify-end">
-        <Button onClick={() => setIsAddOpen(true)}>
-          <UserPlus className="mr-2" />
+        <Button onClick={() => setIsAddOpen(true)} className="gym-button">
+          <UserPlus className="mr-2 h-4 w-4" />
           Agregar Usuario
         </Button>
       </div>
 
-      <div className="rounded-md border">
+      <div className="rounded-md border bg-white/50 backdrop-blur-sm">
         <Table>
           <TableHeader>
-            <TableRow>
-              <TableHead>Nombre</TableHead>
-              <TableHead>Teléfono</TableHead>
-              <TableHead>Documento</TableHead>
-              <TableHead>Mensualidad</TableHead>
-              <TableHead>Último Pago</TableHead>
-              <TableHead>Observaciones</TableHead>
-              <TableHead className="text-right">Acciones</TableHead>
+            <TableRow className="bg-blue-50/50">
+              <TableHead className="font-semibold">Nombre</TableHead>
+              <TableHead className="font-semibold">Teléfono</TableHead>
+              <TableHead className="font-semibold">Documento</TableHead>
+              <TableHead className="font-semibold">Mensualidad</TableHead>
+              <TableHead className="font-semibold">Último Pago</TableHead>
+              <TableHead className="font-semibold">Observaciones</TableHead>
+              <TableHead className="text-right font-semibold">Acciones</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {users.map((user) => (
-              <TableRow key={user.id}>
-                <TableCell>{user.fullName}</TableCell>
+              <TableRow key={user.id} className="hover:bg-blue-50/30 transition-colors">
+                <TableCell className="font-medium">{user.fullName}</TableCell>
                 <TableCell>{user.phoneNumber}</TableCell>
                 <TableCell>{user.documentId}</TableCell>
-                <TableCell>${user.membershipFee.toLocaleString()}</TableCell>
+                <TableCell>
+                  <div className="flex items-center gap-1">
+                    <DollarSign className="h-4 w-4 text-green-600" />
+                    {user.membershipFee.toLocaleString()}
+                  </div>
+                </TableCell>
                 <TableCell>
                   {format(user.lastPaymentDate, "dd 'de' MMMM, yyyy", { locale: es })}
                 </TableCell>
@@ -121,8 +125,9 @@ export const UserTable = ({ users, onAddUser, onUpdateUser, onDeleteUser }: User
                       setSelectedUser(user);
                       setIsEditOpen(true);
                     }}
+                    className="hover:bg-blue-100"
                   >
-                    <Edit className="h-4 w-4" />
+                    <Edit className="h-4 w-4 text-blue-600" />
                   </Button>
                   <Button
                     variant="ghost"
@@ -131,8 +136,9 @@ export const UserTable = ({ users, onAddUser, onUpdateUser, onDeleteUser }: User
                       setSelectedUser(user);
                       setIsDeleteOpen(true);
                     }}
+                    className="hover:bg-red-100"
                   >
-                    <Trash2 className="h-4 w-4" />
+                    <Trash2 className="h-4 w-4 text-red-600" />
                   </Button>
                 </TableCell>
               </TableRow>
@@ -142,9 +148,12 @@ export const UserTable = ({ users, onAddUser, onUpdateUser, onDeleteUser }: User
       </div>
 
       <Dialog open={isAddOpen} onOpenChange={setIsAddOpen}>
-        <DialogContent>
+        <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
-            <DialogTitle>Agregar Usuario</DialogTitle>
+            <DialogTitle className="flex items-center gap-2">
+              <UserPlus className="h-5 w-5 text-blue-600" />
+              Agregar Usuario
+            </DialogTitle>
           </DialogHeader>
           <UserForm
             onSubmit={handleAdd}
@@ -154,9 +163,12 @@ export const UserTable = ({ users, onAddUser, onUpdateUser, onDeleteUser }: User
       </Dialog>
 
       <Dialog open={isEditOpen} onOpenChange={setIsEditOpen}>
-        <DialogContent>
+        <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
-            <DialogTitle>Editar Usuario</DialogTitle>
+            <DialogTitle className="flex items-center gap-2">
+              <Edit className="h-5 w-5 text-blue-600" />
+              Editar Usuario
+            </DialogTitle>
           </DialogHeader>
           {selectedUser && (
             <UserForm
@@ -174,7 +186,10 @@ export const UserTable = ({ users, onAddUser, onUpdateUser, onDeleteUser }: User
       <AlertDialog open={isDeleteOpen} onOpenChange={setIsDeleteOpen}>
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle>¿Estás seguro?</AlertDialogTitle>
+            <AlertDialogTitle className="flex items-center gap-2">
+              <Trash2 className="h-5 w-5 text-red-600" />
+              ¿Estás seguro?
+            </AlertDialogTitle>
             <AlertDialogDescription>
               Esta acción no se puede deshacer. Esto eliminará permanentemente el usuario
               {selectedUser && ` ${selectedUser.fullName}`} y todos sus datos.
@@ -187,7 +202,7 @@ export const UserTable = ({ users, onAddUser, onUpdateUser, onDeleteUser }: User
             }}>
               Cancelar
             </AlertDialogCancel>
-            <AlertDialogAction onClick={handleDelete}>
+            <AlertDialogAction onClick={handleDelete} className="bg-red-600 hover:bg-red-700">
               Eliminar
             </AlertDialogAction>
           </AlertDialogFooter>
