@@ -1,73 +1,96 @@
-# Welcome to your Lovable project
+# Sistema de Gestión de Gimnasio
 
-## Project info
+Un sistema moderno y elegante para la gestión de miembros de gimnasio, construido con React, TypeScript y TailwindCSS.
 
-**URL**: https://lovable.dev/projects/79c24203-a3b9-4434-a107-822964c87428
+## 🚀 Características
 
-## How can I edit this code?
+- 📝 Gestión completa de miembros (agregar, editar, eliminar)
+- 💰 Seguimiento de mensualidades
+- 📅 Control de fechas de último pago
+- ⚠️ Alertas de membresías vencidas
+- 🎨 Interfaz moderna y responsiva
+- 🌙 Modo oscuro/claro
+- 📱 Diseño adaptable a todos los dispositivos
 
-There are several ways of editing your application.
+## 🛠️ Tecnologías Utilizadas
 
-**Use Lovable**
+- React 18
+- TypeScript
+- Vite
+- TailwindCSS
+- Shadcn/UI
+- React Hook Form
+- React Query
+- date-fns
+- Lucide Icons
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/79c24203-a3b9-4434-a107-822964c87428) and start prompting.
+## 🚦 Requisitos Previos
 
-Changes made via Lovable will be committed automatically to this repo.
+- Node.js (versión 16 o superior)
+- npm o yarn
 
-**Use your preferred IDE**
+## 🚀 Instalación
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+1. Clona el repositorio:
+```bash
+git clone https://github.com/jfzulu/active-gym-users.git
+cd active-gym-users
 ```
 
-**Edit a file directly in GitHub**
+2. Instala las dependencias:
+```bash
+npm install
+# o
+yarn install
+```
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+3. Inicia el servidor de desarrollo:
+```bash
+npm run dev
+# o
+yarn dev
+```
 
-**Use GitHub Codespaces**
+4. Abre [http://localhost:5173](http://localhost:5173) en tu navegador.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 📦 Construcción para Producción
 
-## What technologies are used for this project?
+```bash
+npm run build
+# o
+yarn build
+```
 
-This project is built with:
+## 🎨 Características de Diseño
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- Patrón de fondo personalizado con iconos de gimnasio
+- Efectos de glassmorphism para una apariencia moderna
+- Gradientes y sombras sutiles
+- Animaciones suaves en interacciones
+- Iconografía consistente con la temática del gimnasio
 
-## How can I deploy this project?
+## 📱 Responsive Design
 
-Simply open [Lovable](https://lovable.dev/projects/79c24203-a3b9-4434-a107-822964c87428) and click on Share -> Publish.
+El sistema está completamente optimizado para:
+- Dispositivos móviles
+- Tablets
+- Laptops
+- Monitores de escritorio
 
-## Can I connect a custom domain to my Lovable project?
+## 🤝 Contribuciones
 
-Yes, you can!
+Las contribuciones son bienvenidas. Por favor, abre un issue primero para discutir qué te gustaría cambiar.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 📄 Licencia
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
+
+## 👥 Autor
+
+- **Juan Felipe Zuluaga** - [GitHub](https://github.com/jfzulu)
+
+## 🙏 Agradecimientos
+
+- [Shadcn/UI](https://ui.shadcn.com/) por los componentes base
+- [Lucide](https://lucide.dev/) por los iconos
+- [TailwindCSS](https://tailwindcss.com/) por el framework de estilos
