@@ -112,6 +112,11 @@
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
+.dark .gym-container {
+  background: rgba(17, 24, 39, 0.95);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+}
+
 .gym-header {
   @apply text-3xl font-bold mb-6;
   background: linear-gradient(45deg, #2563eb, #3b82f6);
@@ -120,12 +125,23 @@
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.dark .gym-header {
+  background: linear-gradient(45deg, #60a5fa, #93c5fd);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .gym-card {
   @apply rounded-lg bg-white p-6 shadow-sm;
   background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(5px);
   border: 1px solid rgba(229, 231, 235, 0.5);
   transition: transform 0.2s ease-in-out;
+}
+
+.dark .gym-card {
+  background: rgba(17, 24, 39, 0.9);
+  border: 1px solid rgba(75, 85, 99, 0.5);
 }
 
 .gym-card:hover {
@@ -137,9 +153,17 @@
   background: linear-gradient(45deg, #2563eb, #3b82f6);
 }
 
+.dark .gym-button {
+  background: linear-gradient(45deg, #3b82f6, #60a5fa);
+}
+
 .gym-button:hover {
   transform: translateY(-1px);
   box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+}
+
+.dark .gym-button:hover {
+  box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.3);
 }
 
 .gym-input {
@@ -147,7 +171,47 @@
   border: 1px solid rgba(229, 231, 235, 0.5);
 }
 
+.dark .gym-input {
+  border: 1px solid rgba(75, 85, 99, 0.5);
+  background: rgba(17, 24, 39, 0.8);
+}
+
 .gym-input:focus {
   border-color: #3b82f6;
   box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+.dark .gym-input:focus {
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.2);
+}
+
+/* Estilos para la tabla en modo oscuro */
+.dark .table {
+  background: rgba(17, 24, 39, 0.8);
+}
+
+.dark .table-header {
+  background: rgba(31, 41, 55, 0.8);
+}
+
+.dark .table-row:hover {
+  background: rgba(55, 65, 81, 0.5);
+}
+
+/* Estilos para los diálogos en modo oscuro */
+.dark .dialog-content {
+  background: rgba(17, 24, 39, 0.95);
+  border: 1px solid rgba(75, 85, 99, 0.5);
+}
+
+/* Estilos para las alertas en modo oscuro */
+.dark .alert {
+  background: rgba(17, 24, 39, 0.95);
+  border: 1px solid rgba(75, 85, 99, 0.5);
+}
+
+.dark .alert-destructive {
+  background: rgba(220, 38, 38, 0.1);
+  border: 1px solid rgba(220, 38, 38, 0.2);
 }

@@ -40,7 +40,7 @@ export const UserForm = ({ user, onSubmit, onCancel }: UserFormProps) => {
             <FormItem>
               <FormLabel>Nombre Completo</FormLabel>
               <FormControl>
-                <Input {...field} />
+                <Input {...field} className="gym-input" />
               </FormControl>
             </FormItem>
           )}
@@ -53,7 +53,7 @@ export const UserForm = ({ user, onSubmit, onCancel }: UserFormProps) => {
             <FormItem>
               <FormLabel>Teléfono</FormLabel>
               <FormControl>
-                <Input {...field} />
+                <Input {...field} className="gym-input" />
               </FormControl>
             </FormItem>
           )}
@@ -66,7 +66,7 @@ export const UserForm = ({ user, onSubmit, onCancel }: UserFormProps) => {
             <FormItem>
               <FormLabel>Documento de Identidad</FormLabel>
               <FormControl>
-                <Input {...field} />
+                <Input {...field} className="gym-input" />
               </FormControl>
             </FormItem>
           )}
@@ -89,6 +89,7 @@ export const UserForm = ({ user, onSubmit, onCancel }: UserFormProps) => {
                     const value = e.target.value === '' ? 0 : Number(e.target.value);
                     field.onChange(value);
                   }}
+                  className="gym-input"
                 />
               </FormControl>
             </FormItem>
@@ -107,6 +108,7 @@ export const UserForm = ({ user, onSubmit, onCancel }: UserFormProps) => {
                   {...field}
                   value={field.value instanceof Date ? field.value.toISOString().split('T')[0] : ''}
                   onChange={(e) => field.onChange(new Date(e.target.value))}
+                  className="gym-input"
                 />
               </FormControl>
             </FormItem>
@@ -120,17 +122,17 @@ export const UserForm = ({ user, onSubmit, onCancel }: UserFormProps) => {
             <FormItem>
               <FormLabel>Observaciones</FormLabel>
               <FormControl>
-                <Textarea {...field} />
+                <Textarea {...field} className="gym-input min-h-[100px]" />
               </FormControl>
             </FormItem>
           )}
         />
 
         <div className="flex justify-end gap-2">
-          <Button type="button" variant="outline" onClick={onCancel}>
+          <Button type="button" variant="outline" onClick={onCancel} className="dark:border-gray-600 dark:hover:bg-gray-800">
             Cancelar
           </Button>
-          <Button type="submit">
+          <Button type="submit" className="gym-button">
             {user ? "Actualizar" : "Crear"}
           </Button>
         </div>

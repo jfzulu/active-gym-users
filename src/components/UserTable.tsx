@@ -88,10 +88,10 @@ export const UserTable = ({ users, onAddUser, onUpdateUser, onDeleteUser }: User
         </Button>
       </div>
 
-      <div className="rounded-md border bg-white/50 backdrop-blur-sm">
+      <div className="rounded-md border bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm">
         <Table>
           <TableHeader>
-            <TableRow className="bg-blue-50/50">
+            <TableRow className="bg-blue-50/50 dark:bg-gray-700/50">
               <TableHead className="font-semibold">Nombre</TableHead>
               <TableHead className="font-semibold">Teléfono</TableHead>
               <TableHead className="font-semibold">Documento</TableHead>
@@ -103,13 +103,13 @@ export const UserTable = ({ users, onAddUser, onUpdateUser, onDeleteUser }: User
           </TableHeader>
           <TableBody>
             {users.map((user) => (
-              <TableRow key={user.id} className="hover:bg-blue-50/30 transition-colors">
+              <TableRow key={user.id} className="hover:bg-blue-50/30 dark:hover:bg-gray-700/30 transition-colors">
                 <TableCell className="font-medium">{user.fullName}</TableCell>
                 <TableCell>{user.phoneNumber}</TableCell>
                 <TableCell>{user.documentId}</TableCell>
                 <TableCell>
                   <div className="flex items-center gap-1">
-                    <DollarSign className="h-4 w-4 text-green-600" />
+                    <DollarSign className="h-4 w-4 text-green-600 dark:text-green-400" />
                     {user.membershipFee.toLocaleString()}
                   </div>
                 </TableCell>
@@ -125,9 +125,9 @@ export const UserTable = ({ users, onAddUser, onUpdateUser, onDeleteUser }: User
                       setSelectedUser(user);
                       setIsEditOpen(true);
                     }}
-                    className="hover:bg-blue-100"
+                    className="hover:bg-blue-100 dark:hover:bg-blue-900/30"
                   >
-                    <Edit className="h-4 w-4 text-blue-600" />
+                    <Edit className="h-4 w-4 text-blue-600 dark:text-blue-400" />
                   </Button>
                   <Button
                     variant="ghost"
@@ -136,9 +136,9 @@ export const UserTable = ({ users, onAddUser, onUpdateUser, onDeleteUser }: User
                       setSelectedUser(user);
                       setIsDeleteOpen(true);
                     }}
-                    className="hover:bg-red-100"
+                    className="hover:bg-red-100 dark:hover:bg-red-900/30"
                   >
-                    <Trash2 className="h-4 w-4 text-red-600" />
+                    <Trash2 className="h-4 w-4 text-red-600 dark:text-red-400" />
                   </Button>
                 </TableCell>
               </TableRow>
@@ -151,7 +151,7 @@ export const UserTable = ({ users, onAddUser, onUpdateUser, onDeleteUser }: User
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2">
-              <UserPlus className="h-5 w-5 text-blue-600" />
+              <UserPlus className="h-5 w-5 text-blue-600 dark:text-blue-400" />
               Agregar Usuario
             </DialogTitle>
           </DialogHeader>
@@ -166,7 +166,7 @@ export const UserTable = ({ users, onAddUser, onUpdateUser, onDeleteUser }: User
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2">
-              <Edit className="h-5 w-5 text-blue-600" />
+              <Edit className="h-5 w-5 text-blue-600 dark:text-blue-400" />
               Editar Usuario
             </DialogTitle>
           </DialogHeader>
@@ -187,7 +187,7 @@ export const UserTable = ({ users, onAddUser, onUpdateUser, onDeleteUser }: User
         <AlertDialogContent>
           <AlertDialogHeader>
             <AlertDialogTitle className="flex items-center gap-2">
-              <Trash2 className="h-5 w-5 text-red-600" />
+              <Trash2 className="h-5 w-5 text-red-600 dark:text-red-400" />
               ¿Estás seguro?
             </AlertDialogTitle>
             <AlertDialogDescription>
@@ -202,7 +202,7 @@ export const UserTable = ({ users, onAddUser, onUpdateUser, onDeleteUser }: User
             }}>
               Cancelar
             </AlertDialogCancel>
-            <AlertDialogAction onClick={handleDelete} className="bg-red-600 hover:bg-red-700">
+            <AlertDialogAction onClick={handleDelete} className="bg-red-600 hover:bg-red-700 dark:bg-red-700 dark:hover:bg-red-800">
               Eliminar
             </AlertDialogAction>
           </AlertDialogFooter>
